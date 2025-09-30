@@ -10,12 +10,6 @@
 </script>
 
 <h1 class="text-3xl font-bold text-center mt-8 mb-4 text-blue-700">TroopTrack Money Account Report Generator</h1>
-<div class="flex justify-center my-6">
-    <label class="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Upload CSV
-        <input type="file" accept=".csv" class="hidden" on:change={handleFileUpload} />
-    </label>
-</div>
 
 {#if csvFile}
     <div class="max-w-2xl mx-auto my-6 p-4 bg-gray-100 rounded shadow">
@@ -25,5 +19,12 @@
                 {text}
             {/await}
         </pre>
+    </div>
+{:else}
+    <div class="flex justify-center my-6">
+        <label class="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Upload CSV
+            <input type="file" accept=".csv" class="hidden" on:change={handleFileUpload} />
+        </label>
     </div>
 {/if}
