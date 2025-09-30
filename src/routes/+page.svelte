@@ -1,10 +1,13 @@
 <script lang="ts">
+    import Papa from 'papaparse';
     import AccountSelect from '$lib/AccountSelect.svelte';
     import CsvTable from '$lib/CsvTable.svelte';
-    import Papa from 'papaparse';
+    import DatePicker from '$lib/DatePicker.svelte';
     let csvFile: File | null = null;
     let csvData: Record<string, string>[] | null = null;
     let chosenAccountNames: string[] = [];
+    let startDate: Date = new Date();
+    let endDate: Date = new Date();
 
     function handleFileUpload(event: Event) {
         const input = event.target as HTMLInputElement;
@@ -24,6 +27,7 @@
 
 {#if csvData}
     <AccountSelect {csvData} bind:chosenAccountNames />
+    <DatePicker bind:startDate bind:endDate />
     <div class="mx-auto my-6 p-4 bg-gray-100 rounded shadow">
         <h2 class="text-xl font-semibold mb-2">CSV File Contents</h2>
         <CsvTable {csvData} />
