@@ -50,7 +50,7 @@
         (All data is processed locally in your browser and not uploaded anywhere.)
     </p>
     <InputFile bind:csvData />
-    <p>
+    <p class="my-3">
         Source: <a class="underline text-blue-800" href="https://github.com/StevenClontz/trooptrack-report-generator">GitHub</a>
     </p>
 {/if}
