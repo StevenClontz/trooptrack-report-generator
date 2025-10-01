@@ -23,7 +23,10 @@
 </script>
 
 {#if showReport}
-    <button class="print:hidden bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" on:click={_=>showReport = false}>Reset Report</button>
+    <div class="print:hidden">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block" on:click={_=>showReport = false}>Reset Reports</button>
+        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 inline-block" on:click={_=>window.print()}>Print Reports</button>
+    </div>
     {#each chosenAccountNames as accountName}
         <h2 class="text-2xl font-semibold mt-6 mb-2">{accountName}</h2>
         <Report {csvData} {accountName} {startDate} {endDate} />
