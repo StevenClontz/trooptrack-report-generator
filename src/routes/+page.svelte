@@ -23,6 +23,7 @@
 </script>
 
 {#if showReport}
+    <h1 class="print:hidden text-3xl font-bold text-center mt-8 mb-4 text-blue-700">TroopTrack Money Account Report Generator</h1>
     <div class="print:hidden">
         <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block" on:click={_=>showReport = false}>Reset Reports</button>
         <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 inline-block" on:click={_=>window.print()}>Print Reports</button>
@@ -32,6 +33,7 @@
         <Report {csvData} {accountName} {startDate} {endDate} />
     {/each}
 {:else if csvData}
+    <h1 class="text-3xl font-bold text-center mt-8 mb-4 text-blue-700">TroopTrack Money Account Report Generator</h1>
     <AccountSelect {csvData} bind:chosenAccountNames />
     <DatePicker bind:startDate bind:endDate />
     <button class="bg-blue-600 text-white px-4 py-2 mt-4 rounded hover:bg-blue-700" on:click={runReport}>Run Report</button>
