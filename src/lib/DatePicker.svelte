@@ -3,8 +3,8 @@
   export let endDate = new Date();
   let startDateString = startDate.toISOString().substring(0, 10);
   let endDateString = endDate.toISOString().substring(0, 10);
-  $: startDate = new Date(startDateString);
-  $: endDate = new Date(endDateString);
+  $: startDate = new Date(`${startDateString}T00:00:00`);
+  $: endDate = new Date(`${endDateString}T00:00:00`);
 </script>
 
 Start:
