@@ -1,6 +1,7 @@
 <script lang="ts">
     import currency from "currency.js";
     export let csvData: any[] = [];
+    export let rows = 10;
     const KEYS = [
         "Account name",
         "Activity on",
@@ -22,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each csvData.slice(0, 10) as row}
+        {#each csvData.slice(0, rows) as row}
             <tr>
                 {#each KEYS as key}
                     <td class="border px-2 py-1">
