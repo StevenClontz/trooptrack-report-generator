@@ -30,16 +30,14 @@
     }
 </script>
 
-<div class="flex justify-center my-6">
-    <label 
-        class="cursor-pointer bg-blue-100 text-black-800 px-4 py-2 rounded hover:bg-blue-200"
-        on:drop={handleFileDrop}
-        on:dragover={e=>e.preventDefault()}>
-        Drag & Drop CSV file here, or
-        <span class="underline text-blue-800">click to select</span>
-        <input type="file" accept=".csv" class="sr-only" on:change={handleFileUpload}/>
-    </label>
-</div>
+<label 
+    class="flex flex-col justify-center items-center cursor-pointer bg-white mt-4 w-5xl min-h-[50vh] border-2 border-blue-400 border-dotted outline-none px-4 py-2 rounded hover:bg-blue-50 text-center"
+    on:drop={handleFileDrop}
+    on:dragover={e=>e.preventDefault()}>
+    Drag & Drop CSV file here, or<br/>
+    <span class="underline text-blue-800">click to select</span>
+    <input type="file" accept=".csv" class="sr-only" on:change={handleFileUpload}/>
+</label>
 
 <style>
 ::file-selector-button {
