@@ -2,24 +2,26 @@
     import currency from "currency.js";
     import { KEYS } from "./constants";
     export let accountName:string
-    export let startDate: Date;
-    export let endDate: Date;
+    export let startDateString: string;
+    export let endDateString: string;
+    let startDate = new Date(`${startDateString}T00:00:00`);
+    let endDate = new Date(`${endDateString}T00:00:00`);
     export let csvData: Record<string, string>[] | null = null;
     let reportData = csvData?.filter(row => {
-        return row["Account name"] === accountName && new Date(row["Activity on"]) >= startDate && new Date(row["Activity on"]) <= endDate;
+        return row["Account name"] === accountName && new Date(`${row["Activity on"]}T00:00:00`) >= startDate && new Date(`${row["Activity on"]}T00:00:00`) <= endDate;
     }).reverse();
     // Calculate starting balance: sum of "Value" before startDate
     let startingBalance = 0;
     if (csvData) {
         startingBalance = csvData
-            .filter(row => row["Account name"] === accountName && new Date(row["Activity on"]) < startDate)
+            .filter(row => row["Account name"] === accountName && new Date(`${row["Activity on"]}T00:00:00`) < startDate)
             .reduce((sum, row) => sum + currency(row["Value"]).value, 0);
     }
     // Calculate ending balance: sum of "Value" before endDate
     let endingBalance = startingBalance;
     if (csvData) {
         endingBalance = csvData
-            .filter(row => row["Account name"] === accountName && new Date(row["Activity on"]) <= endDate)
+            .filter(row => row["Account name"] === accountName && new Date(`${row["Activity on"]}T00:00:00`) <= endDate)
             .reduce((sum, row) => sum + currency(row["Value"]).value, 0);
     }
 </script>
