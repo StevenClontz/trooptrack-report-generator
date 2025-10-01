@@ -1,4 +1,5 @@
 <script lang="ts">
+    import currency from "currency.js";
     export let csvData: any[] = [];
     const KEYS = [
         "Account name",
@@ -24,7 +25,13 @@
         {#each csvData.slice(0, 10) as row}
             <tr>
                 {#each KEYS as key}
-                    <td class="border px-2 py-1">{row[key]}</td>
+                    <td class="border px-2 py-1">
+                        {#if key === "Value" || key === "Balance"}
+                            {currency(row[key]).format()}
+                        {:else}
+                            {row[key]}
+                        {/if}
+                    </td>
                 {/each}
             </tr>
         {/each}

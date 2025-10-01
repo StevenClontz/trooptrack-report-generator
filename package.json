@@ -25,6 +25,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"currency.js": "^2.0.4",
 		"papaparse": "^5.5.3"
 	}
 }
