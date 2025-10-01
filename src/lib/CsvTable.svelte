@@ -8,6 +8,7 @@
         "Description",
         "Details",
         "Value",
+        "Tender type",
         "Balance",
     ]
 </script>
