@@ -44,7 +44,10 @@
 {:else}
     <h1 class="text-3xl font-bold text-center mt-8 mb-4 text-blue-700">TroopTrack Money Account Report Generator</h1>
     <p>
-        Visit your TroopTrack Money Book page and export the report as a CSV file to upload here.
+        Visit your TroopTrack Money Book page and export the report as a CSV file to load it here.
+    </p>
+    <p>
+        (All data is processed locally in your browser and not uploaded anywhere.)
     </p>
     <InputFile bind:csvData />
 {/if}
