@@ -34,7 +34,7 @@
 <p>
     Ending balance on {endDate.toLocaleDateString()}: {currency(endingBalance).format()}
 </p>
-<table>
+<table class="print:text-sm">
     <thead>
         <tr>
             {#each KEYS as header}
