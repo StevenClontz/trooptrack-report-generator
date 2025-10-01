@@ -1,5 +1,6 @@
 <script lang="ts">
     import currency from "currency.js";
+    import { KEYS } from "./constants";
     export let accountName:string
     export let startDate: Date;
     export let endDate: Date;
@@ -21,14 +22,6 @@
             .filter(row => row["Account name"] === accountName && new Date(row["Activity on"]) <= endDate)
             .reduce((sum, row) => sum + currency(row["Value"]).value, 0);
     }
-    const KEYS = [
-        "Activity on",
-        "Description",
-        "Details",
-        "Value",
-        "Tender type",
-        "Balance",
-    ]
 </script>
 
 <div style="break-after: page;">

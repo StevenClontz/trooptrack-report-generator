@@ -1,16 +1,8 @@
 <script lang="ts">
     import currency from "currency.js";
+    import { KEYS } from "./constants";
     export let csvData: any[] = [];
     export let rows = 10;
-    const KEYS = [
-        "Account name",
-        "Activity on",
-        "Description",
-        "Details",
-        "Value",
-        "Tender type",
-        "Balance",
-    ]
 </script>
 
 <table>
