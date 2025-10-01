@@ -3,6 +3,7 @@
     import CsvTable from '$lib/CsvTable.svelte';
     import DatePicker from '$lib/DatePicker.svelte';
     import InputFile from '$lib/InputFile.svelte';
+    import Report from '$lib/Report.svelte';
     let csvData: Record<string, string>[] | null = null;
     let chosenAccountNames: string[] = [];
     let startDate: Date = new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1);
@@ -23,6 +24,10 @@
 
 {#if showReport}
     <button class="print:hidden bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" on:click={_=>showReport = false}>Reset Report</button>
+    {#each chosenAccountNames as accountName}
+        <h2 class="text-2xl font-semibold mt-6 mb-2">{accountName}</h2>
+        <Report {csvData} {accountName} {startDate} {endDate} />
+    {/each}
 {:else if csvData}
     <AccountSelect {csvData} bind:chosenAccountNames />
     <DatePicker bind:startDate bind:endDate />

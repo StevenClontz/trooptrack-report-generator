@@ -5,9 +5,9 @@
     const KEYS = [
         "Account name",
         "Activity on",
-        "Value",
         "Description",
         "Details",
+        "Value",
         "Balance",
     ]
 </script>
